@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Operation Wallacea - Open Source at the Core</title>
+
+		<meta name="description" content="My experiences with the Opwall project">
+		<meta name="author" content="Jason Judge">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+		<link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Operation Wallacea</h1>
+					<h3>Open Source at the Core</h3>
+					<p>
+						<small>Created by <a href="http://academe.co.uk">Jason Judge</a> / <a href="http://twitter.com/jasondjudge">@jasondjudge</a></small>
+					</p>
+				</section>
+
+				<!-- What is Opwall -->
+				<section>
+					<h1>Operation Wallacea</h1>
+					<h2>aka Opwall</h2>
+
+					<p class="fragment">
+					“Operation Wallacea is an organisation...that runs a series of biological and conservation management research programmes in remote locations across the world.”
+					</p>
+				</section>
+
+				<!-- Example service -->
+				<section>
+					<h1>Research Assistant</h1>
+
+					<ul>
+						<li class="fragment">University students or pre-university school groups.</li>
+						<li class="fragment">Students attend an expedition for two or more weeks.</li>
+						<li class="fragment">Surveys up trees, in forests, in the sea.</li>
+						<li class="fragment">Record biodiversity, carbon capture, health of environment.</li>
+					</ul>
+					<p>
+						<img src="media/hondsv-243x182.jpg" style="height: 169px;" />
+						<img src="media/madlemur.jpg" style="height: 169px;" />
+						<img src="media/Calakmul-emerging-from-forest.jpg" style="height: 169px;" />
+					</p>
+				</section>
+
+				<!-- Locations of offices and expeditions -->
+				<section>
+					<section>
+						<div data-svg-fragment="media/world-map-offices-and-expeditions2.svg#[*|label=world-map]">
+							<a class="fragment" title="[*|label=Offices]"></a>
+							<a class="fragment" title="[*|label=Expeditions]"></a>
+							<a class="fragment" title="[*|label=Schools]"></a>
+						</div>
+					</section>
+
+					<section data-markdown>
+						# Offices
+
+						* UK
+						* Canada
+						* USA
+						* South Africa
+						* China
+						* Australia and South East Asia
+						* Nordic
+						* Central America
+						* Mexico
+						* UAE
+					</section>
+
+					<section data-markdown>
+						# Expeditions 2015
+
+						* China
+						* Cuba
+						* Dominica
+						* Greece
+						* Guyana
+						* Honduras
+						* Indonesia
+						* Madagascar
+						* Mexico
+						* Peru
+						* South Africa
+						* Romania
+					</section>
+
+					<section data-markdown>
+						# Schools 2015
+
+						In addition to the research expedition countries:
+
+						* Ecuador
+						* France and Italy
+						* Transylvania
+					</section>
+				</section>
+
+				<!-- The problem to solve -->
+				<section>
+					<h1>The Problem</h1>
+
+					<ul>
+						<li class="fragment">An MS Access database for UK university students.</li>
+						<li class="fragment">An MS Access database for US university students.</li>
+						<li class="fragment">Another for Canadian students.</li>
+						<li class="fragment">Yet another for US students in states managed by Canada.</li>
+						<li class="fragment">Schools and school students had their own databases.</li>
+						<li class="fragment">As did the academics...</li>
+
+						<p class="fragment" style="text-align: right">
+							<img src="media/Meme_Confused.jpg" style="height: 200px;" />
+						</p>
+					</ul>
+				</section>
+
+				<!-- The solution -->
+				<section data-background="#ffffdd">
+					<!-- <h1>The Solution</h1> -->
+
+					<div data-svg-fragment="media/combine-access-databases.svg#[*|label=Access]">
+						<a class="fragment" title="[*|label=Arrows]"></a>
+						<a class="fragment" title="[*|label=Sugar]"></a>
+					</div>
+				</section>
+
+				<!-- TODO: defining the data structure -->
+				<section data-background="#ffddff">
+					<!-- <h1>Data Model</h1> -->
+
+					<div data-svg-fragment="media/data-structure-expeditions.svg#[*|label=Years]">
+						<a class="fragment" title="[*|label=Expeditions]"></a>
+						<a class="fragment" title="[*|label=Weeks]"></a>
+						<a class="fragment" title="[*|label=Options]"></a>
+						<a class="fragment" title="[*|label=Bookings]"></a>
+						<a class="fragment" title="[*|label=Flights]"></a>
+					</div>
+				</section>
+
+				<!-- TODO: migrating the data -->
+				<section>
+					<h1>Data Migration</h1>
+
+					<ul>
+						<li class="fragment">Decided to just migrate everything.</li>
+						<li class="fragment">Many attributes migrated, but not needed.</li>
+						<li class="fragment">Normalising across the databases is tricky.</li>
+						<li class="fragment">No common keys in lookup data.</li>
+						<li class="fragment">Everyone spells the same things differently.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Reference Data</h1>
+
+					<p>Where can it be obtained?</p>
+
+					<ul>
+						<li class="fragment">Countries, states/counties - <a href="http://en.wikipedia.org/wiki/ISO_3166" target="_blank">Wikipedia ISO3361</a></li>
+						<li class="fragment">Airports - <a href="http://openflights.org/" target="_blank">openflights.org</a></li>
+						<li class="fragment">Easier to find lists for US than UK</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Data Migration Tools</h1>
+
+					<p>What was useful?</p>
+
+					<ul>
+						<li class="fragment">Excel <span class="fragment"> - but no UTF-8</span></li>
+						<li class="fragment"><a href="https://www.openoffice.org/" target="_blank">OpenOffice</a>/<a href="http://www.libreoffice.org/" target="_blank">LibreOffice</a></li>
+						<li class="fragment"><a href="http://openrefine.org/" target="_blank">OpenRefine</a> né Google Refine</li>
+						<li class="fragment"><a href="http://mysqlworkbench.org/" target="_blank">MySQL Workbench</a></li>
+						<li class="fragment">A decent text editor</li>
+					</ul>
+				</section>
+
+				<!-- Additions - reports, email integration, teams -->
+				<!-- OpenERP integration -->
+				<!-- Portal self-service -->
+				<section data-background="#ddffff">
+					<div data-svg-fragment="media/integration-overview.svg#[*|label=Images]">
+						<span class="fragment current-visible" title="[*|label=EOI]"></span>
+						<span class="fragment current-visible" title="[*|label=SelfService]"></span>
+						<span class="fragment current-visible" title="[*|label=Invoice]"></span>
+						<span class="fragment current-visible" title="[*|label=PayInvoices]"></span>
+						<span class="fragment current-visible" title="[*|label=Accounts]"></span>
+					</div>
+				</section>
+
+				<!-- Lessons learnt -->
+				<section xdata-background="#ddffdd">
+					<h1>Some Learning Points</h1>
+
+					</ul>
+						<li class="fragment">Don't underestimate data migration.</li>
+						<li class="fragment">It's all about integration.</li>
+						<li class="fragment">Outsource email handling.</li>
+						<li class="fragment">It's a fine balance: client's workflow <em>vs</em> standard business workflow <em>vs</em> default application behaviour <em>vs</em> custom code.</li>
+						<li class="fragment">Open source documentation is often somewhat lacking.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Title</h1>
+					<p class="fragment highlight-red" data-fragment-index="1" >Text</p>
+					<p class="fragment" data-fragment-index="1">Fragment</p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="reveal.js/lib/js/head.min.js"></script>
+		<script src="reveal.js/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+					{
+						src: 'plugin/reveal-svg-fragment.js',
+						async: true, condition: function() {
+							return !!document.querySelector( '[data-svg-fragment]' );
+						},
+						// Additional options
+						// defaults to using already-loaded version, or CDN
+						d3: "plugin/d3.min.js",
+						// use a different attribute for your fragment selector
+						selector: "title"
+					}
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
